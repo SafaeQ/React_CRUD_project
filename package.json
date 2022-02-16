@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/SafaeQ/React_CRUD_project#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
   }
 }
