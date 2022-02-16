@@ -4,9 +4,6 @@ const router = require('./lib/routes/router')
 
 app.use(express.json())
 
-// app.use('/', (req, res) => {
-//     res.send('heyyyyyy')
-// })
 
 app.use('/', router)
 app.listen(9000, () => {
