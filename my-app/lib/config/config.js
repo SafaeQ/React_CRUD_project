@@ -1,4 +1,5 @@
-let users = [{
+
+ let users= [{
         id: "123456789",
         createdDate: "2021-01-06T00:00:00.000Z",
         status: "En validation",
@@ -26,8 +27,5 @@ let users = [{
         lastName: "Mahidi",
         userName: "rmahidi",
         registrationNumber: "3576",
-
-    }
-]
-
+    }]
 module.exports = users

@@ -1,4 +1,4 @@
-const users = require('../config/config')
+const users = require('../config/js')
 
 function getUsers(req, res) {
     try {
