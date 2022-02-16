@@ -5,14 +5,14 @@ export const AddUser = () => {
   return (
     <>
       <main>
-        <h2>welcome to home page</h2> 
+        <h2>welcome to add user page</h2> 
       </main>
       <nav>
-        <Link to='/add-user'>Add User</Link>
+        <Link to='/'>Home</Link>
       </nav>
       <div>
-        <h1>Add User</h1>
         <div class= "form">
+            <br/>
                 <label>First Name</label>
             <input type="text" name="firstName"/>
                 <label>Last Name</label>
