@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 
 export const AddUser = () => {
   return (
-
     <>
       <main>
         <h2>welcome to home page</h2> 
@@ -23,12 +22,10 @@ export const AddUser = () => {
                 <label>Status</label>
             <input type="text" name="status"/>  
             <br/>
-            
+
             <button type="submit">Submit </button>
         </div>
     </div>
     </>
-
-    
   )
 }
