@@ -5,9 +5,13 @@ import {AddUser} from './components/AddUser';
 function App() {
   return (
     <div className="App">
-      {/* <h1>hello world</h1> */}
+    {/* <Router> */}
+      <h1>Nav</h1>
+      {/* <Switch> */}
       <Home/>
       <AddUser/>
+      {/* </Switch> */}
+    {/* </Router> */}
     </div>
   );
 }
