@@ -3,10 +3,10 @@ import { useState} from 'react'
 import {Button} from 'react-bootstrap'
 
 export const AddUser = (props) => {
+
     const initialFormState = {id:null, firstName: '', lastName: '', userName: '', status:'', createdDate:''}
     const [user, setUser] = useState(initialFormState)
 
-// 
     const handleInputChange = (event)=> {
         console.log(event)
         const {name, value} = event.target
