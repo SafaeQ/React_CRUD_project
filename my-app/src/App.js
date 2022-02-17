@@ -7,8 +7,9 @@ import { useState} from 'react'
 import './App.css';
 
 function App() {
-  let usersData= [{
+  let usersData = [{
     id: "1",
+    createdDate: "2021-01-06T00:00:00.000Z",
     status: "En validation",
     firstName: "Mohamed",
     lastName: "Taha",
@@ -17,6 +18,7 @@ function App() {
 
 {
     id: "2",
+    createdDate: "2021-07-25T00:00:00.000Z",
     status: "Validé",
     firstName: "Hamid",
     lastName: "Orrich",
@@ -25,28 +27,30 @@ function App() {
 
 {
     id: "3",
+    createdDate: "2021-09-15T00:00:00.000Z",
     status: "Rejeté",
     firstName: "Rachid",
     lastName: "Mahidi",
     userName: "rmahidi",
-}] 
+}]
 
-  const initialFormState = {id:null, firstName: '', lastName: '', username: '', status: ''}
+  const initialFormState = {id:null, firstName: '', lastName: '', username: '', status:"", createdDate:''}
   const [currentUser, setCurrentUser] = useState(initialFormState)
   const [users, setUsers] = useState(usersData)
   const [editing, setEditing] = useState(false)
 
   const editRow = user=> {
     setEditing(true)
-    setCurrentUser({id: user.id, firstName: user.firstName, lastName: user.lastName, username: user.username})
+    setCurrentUser({id: user.id, firstName: user.firstName, lastName: user.lastName, username: user.username, status: user.status, createdDate:user.createdDate})
   }
 
-  const addUser = user => {
+  const addUsers = user => {
     user.id = users.length + 1;
     setUsers([...users, user])
   }
 
   const deleteUser = id => {
+    console.log(id)
     setUsers(users.filter(user => user.id !== id))
   }
 
@@ -63,7 +67,7 @@ function App() {
       ):(
         <div>
           <h2>Add user</h2>
-          <AddUser addUser={addUser}/>
+          <AddUser addUsers={addUsers}/>
         </div>
       )}
     </div>

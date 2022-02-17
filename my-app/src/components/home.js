@@ -1,22 +1,27 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
 
 export const Home = (props)=> (
-   <table>
+   <table className="table table-dark">
        <thead>
            <tr>
-               <th>FirstName</th>
-               <th>LastName</th>
-               <th>username</th>
+               <th scope="col">id</th>
+               <th scope="col">FirstName</th>
+               <th scope="col">LastName</th>
+               <th scope="col">Username</th>
+               <th scope="col">Status</th>
+               <th scope="col">Created Date</th>
            </tr>
        </thead>
        <tbody>
            {props.users.length > 0 ? (
                 props.users.map(user=> (
                     <tr key= {user.id}>
+                            <td>{user.id}</td>
                             <td>{user.firstName}</td>
-                            <td>{user.LastName}</td>
-                            <td>{user.username}</td>
+                            <td>{user.lastName}</td>
+                            <td>{user.userName}</td>
+                            <td>{user.status}</td>
+                            <td>{user.createdDate}</td>
                         <td>
                             <button className="button muted-button" onClick={() => props.deleteUser(user.id)}>Delete
                             </button>
