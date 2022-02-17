@@ -7,13 +7,31 @@ import { useState} from 'react'
 import './App.css';
 
 function App() {
-  const usersData = [
-    {id: 1, firstName: 'safae', lastName: 'zeaze', username: 'saf'},
-    {id: 2, firstName: 'safae2', lastName: 'zeaze', username: 'saf'},
-    {id: 3, firstName: 'safae3', lastName: 'zeaze', username: 'saf'}
-  ];
+  let usersData= [{
+    id: "1",
+    status: "En validation",
+    firstName: "Mohamed",
+    lastName: "Taha",
+    userName: "mtaha",
+},
 
-  const initialFormState = {id:null, firstName: '', lastName: '', username: ''}
+{
+    id: "2",
+    status: "Validé",
+    firstName: "Hamid",
+    lastName: "Orrich",
+    userName: "horrich",
+},
+
+{
+    id: "3",
+    status: "Rejeté",
+    firstName: "Rachid",
+    lastName: "Mahidi",
+    userName: "rmahidi",
+}] 
+
+  const initialFormState = {id:null, firstName: '', lastName: '', username: '', status: ''}
   const [currentUser, setCurrentUser] = useState(initialFormState)
   const [users, setUsers] = useState(usersData)
   const [editing, setEditing] = useState(false)

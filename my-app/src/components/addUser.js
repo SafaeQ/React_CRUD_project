@@ -3,16 +3,15 @@ import React from 'react'
 import { useState} from 'react'
 // import axios from 'axios'
 
-export const AddUser = (argm) => {
+export const AddUser = (props) => {
     const initialFormState = {id:null, firstName: '', lastName: '', username: ''}
     const [user, setUser] = useState(initialFormState)
 
 
     const handleInputChange = (event)=> {
-        const {firstName, value} = event.target
-        setUser({...user, [firstName]: value})
+        const {name, value} = event.target
+        setUser({...user, [name]: value})
         // console.log(event)
-        // axios.post('http://localhost:9000/', {firstName: firstName, lastName: lastName})
     }
   return (
     //   <main>
@@ -24,7 +23,7 @@ export const AddUser = (argm) => {
       <form onSubmit={e => {
           e.preventDefault();
           if (!user.firstName || !user.lastName || !user.username) return;
-            argm.AddUser(user)
+            props.AddUser(user)
             setUser(initialFormState)
           
       }}>
