@@ -2,6 +2,7 @@ import React from 'react'
 import Button from "react-bootstrap/Button"
 
 export const Home = (props)=> (
+    
    <table className="table table-dark">
        <thead>
            <tr>
