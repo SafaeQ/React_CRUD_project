@@ -52,7 +52,9 @@ function App() {
     console.log('modal clicked')
     setShow(true)
   } 
+  
   const handleClose = () => setShow(false)
+
   return (
     <div className="App">
       <h1> CRUD APP </h1>
