@@ -1,9 +1,9 @@
 import React from "react";
-// import {Routes, Route} from 'react-router-dom'
 import {Home} from './components/Home';
 import {AddUser} from './components/AddUser';
-import {EditUserForm} from './components/EditUserForm';
 import { useState} from 'react'
+import {Button, Modal, CloseButton} from "react-bootstrap"
+
 import './App.css';
 
 function App() {
@@ -34,16 +34,8 @@ function App() {
     userName: "rmahidi",
 }]
 
-  const initialFormState = {id:null, firstName: '', lastName: '', username: '', status:"", createdDate:''}
-  const [currentUser, setCurrentUser] = useState(initialFormState)
   const [users, setUsers] = useState(usersData)
-  const [editing, setEditing] = useState(false)
-
-  const editRow = user=> {
-    setEditing(true)
-    setCurrentUser({id: user.id, firstName: user.firstName, lastName: user.lastName, username: user.username, status: user.status, createdDate:user.createdDate})
-  }
-
+  
   const addUsers = user => {
     user.id = users.length + 1;
     setUsers([...users, user])
@@ -53,33 +45,42 @@ function App() {
     console.log(id)
     setUsers(users.filter(user => user.id !== id))
   }
+  const [showModal, setModal] = useState(false)
+const showModalButton = (e)=> {
+  e.preventDefault()
+  console.log('modal clicked')
+  setModal(true)
+}
 
+  const [show, setshow] = useState(true)
+  const hideModal = (e)=> {
+      e.preventDefault();
+      console.log("show ")
+      setshow(false)
+  }
+  
   return (
     <div className="App">
       <h1> CRUD APP </h1>
       <div className= "flex-row">
     <div className="flex-large">
-      {editing ? (
+
         <div>
-            <h2>Edit user</h2>
-            <EditUserForm editing={editing} setEditing={setEditing} currentUser={currentUser}/>
-        </div>
-      ):(
-        <div>
-          <h2>Add user</h2>
+          <Button showModal={showModal} onClick= {showModalButton}>Add User</Button>
+          <Modal show={show}>
+          <CloseButton type="button" className="btn-danger" onClick= {hideModal}>X</CloseButton>
+          <h2 className="text-center">Add user</h2>
           <AddUser addUsers={addUsers}/>
+          </Modal>
         </div>
-      )}
+  
     </div>
     <div className="flex-large">
         <h2>View all users</h2>
-        <Home users={users} editRow={editRow} deleteUser={deleteUser} />
+        <Home users={users} deleteUser={deleteUser} />
     </div>
   </div>
-      {/* <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='add-user' element={<AddUser />} />
-      </Routes> */}
+
 </div>
   );
 }

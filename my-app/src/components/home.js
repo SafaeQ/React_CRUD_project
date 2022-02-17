@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from "react-bootstrap/Button"
 
 export const Home = (props)=> (
    <table className="table table-dark">
@@ -23,8 +24,8 @@ export const Home = (props)=> (
                             <td>{user.status}</td>
                             <td>{user.createdDate}</td>
                         <td>
-                            <button className="button muted-button" onClick={() => props.deleteUser(user.id)}>Delete
-                            </button>
+                            <Button className="button muted-button" onClick={() => props.deleteUser(user.id)}>Delete
+                            </Button>
                         </td>
                     </tr>
                 ))    
