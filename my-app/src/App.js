@@ -46,20 +46,13 @@ function App() {
     setUsers(users.filter(user => user.id !== id))
   }
   
-  const [showModal, setModal] = useState(false)
-  const showModalButton = (e)=> {
+  const [showModal, setShow] = useState(false)
+  const handleShow = (e)=> {
     e.preventDefault()
     console.log('modal clicked')
-    setModal(true)
+    setShow(true)
   } 
-
-  const [close, setclose] = useState(true)
-  const hideModal = (e)=> {
-      e.preventDefault();
-      console.log("show ")
-      setclose(false)
-  }
-  
+  const handleClose = () => setShow(false)
   return (
     <div className="App">
       <h1> CRUD APP </h1>
@@ -67,9 +60,9 @@ function App() {
     <div className="flex-large">
 
         <div>
-          <Button showModal={showModal} onClick= {showModalButton}>Add User</Button>
-          <Modal show={close}>
-          <CloseButton type="button" className="btn-danger" onClick= {hideModal}>X</CloseButton>
+          <Button  onClick= {handleShow}>Add User</Button>
+          <Modal show={showModal} onHide={handleClose}>
+          <CloseButton type="button" className="btn-danger" onClick= {handleClose}>X</CloseButton>
           <h2 className="text-center">Add user</h2>
           <AddUser addUsers={addUsers}/>
           </Modal>
