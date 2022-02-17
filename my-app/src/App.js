@@ -45,18 +45,19 @@ function App() {
     console.log(id)
     setUsers(users.filter(user => user.id !== id))
   }
+  
   const [showModal, setModal] = useState(false)
-const showModalButton = (e)=> {
-  e.preventDefault()
-  console.log('modal clicked')
-  setModal(true)
-}
+  const showModalButton = (e)=> {
+    e.preventDefault()
+    console.log('modal clicked')
+    setModal(true)
+  } 
 
-  const [show, setshow] = useState(true)
+  const [close, setclose] = useState(true)
   const hideModal = (e)=> {
       e.preventDefault();
       console.log("show ")
-      setshow(false)
+      setclose(false)
   }
   
   return (
@@ -67,7 +68,7 @@ const showModalButton = (e)=> {
 
         <div>
           <Button showModal={showModal} onClick= {showModalButton}>Add User</Button>
-          <Modal show={show}>
+          <Modal show={close}>
           <CloseButton type="button" className="btn-danger" onClick= {hideModal}>X</CloseButton>
           <h2 className="text-center">Add user</h2>
           <AddUser addUsers={addUsers}/>
