@@ -16,8 +16,8 @@ export const AddUser = (props) => {
     const handleSubmit = (e)=> {
         e.preventDefault();
         console.log('its work')
-        const nameInput = e.target.firstName.value
-        console.log(nameInput)
+        // const nameInput = e.target.firstName.value
+        // console.log(nameInput)
         if (!user.firstName || !user.lastName || !user.userName) return alert('Please enter the inputs');
           props.addUsers(user)
           setUser(initialFormState)
